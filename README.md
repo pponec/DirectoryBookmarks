@@ -16,7 +16,7 @@ Write a new bookmark:
 
 * `directory-bookmarks.kts w [bookmark] [directory]`
 
-List off the saved bookmarks:
+List the all saved bookmarks:
 
 * `directory-bookmarks.kts w [bookmark] [directory]`
 
