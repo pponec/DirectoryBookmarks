@@ -24,8 +24,6 @@ Generate bash code for an integration with Linux Bash:
 
 * directory-bookmarks.kts i
 
-----Add the generated function to create to the `.bashrc` file and reloaded it.
-
 For integration with Linux, it is advisable to add the code generated (by the the last command) to the end of the `.bashrc` file. After reloading the .bashrc file, the following shortcuts can be used:
 
 * sdf [bookmark] # Save the current directory to bookmark
