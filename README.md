@@ -4,7 +4,7 @@ Simple [Kotlin script](https://github.com/kscripting/kscript) for manage (writin
 
 ## Usage:
 
-Breaf usage:
+Brief usage:
 
 * `directory-bookmarks.kts h`
 
