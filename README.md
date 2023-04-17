@@ -1,8 +1,12 @@
 # DirectoryBookmarks.kts
 
-Simple Kotlin script for writing and reading directories (from the filesystem) using backups.
+Simple [Kotlin script](https://github.com/kscripting/kscript) for manage (writing and reading) directories (from the filesystem) by text bookmarks.
 
 ## Usage:
+
+Breaf usage:
+
+* directory-bookmarks.kts h
 
 Read the directory by a bookmark text:
 
@@ -16,17 +20,13 @@ List off the saved bookmarks:
 
 * directory-bookmarks.kts w [bookmark] [directory]
 
-Breaf usage:
-
-* directory-bookmarks.kts h
-
 Generate bash code for an integration with Linux Bash:
 
 * directory-bookmarks.kts i
 
-For integration with Linux, it is advisable to add the code generated (by the the last command) to the end of the `.bashrc` file. After reloading the .bashrc file, the following shortcuts can be used:
+For integration with Linux, it is advisable to add some functions (from the the last command) to the end of the `.bashrc` file. After reloading the `.bashrc` file, the following shortcuts can be used:
 
-* sdf [bookmark] # Save the current directory to bookmark
+* sdf [bookmark] # Save the current directory to the required bookmark
 * cdf [bookmark] # Change a current directory by a bookmark
 * ldf # list all saved bookmarks
 
