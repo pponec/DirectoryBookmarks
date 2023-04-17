@@ -1,6 +1,6 @@
 # DirectoryBookmarks.kts
 
-Simple [Kotlin script](https://github.com/kscripting/kscript) for manage (writing and reading) directories (from the filesystem) by text bookmarks.
+Simple [Kotlin script](https://github.com/kscripting/kscript) for manage (writing and reading) directories (of the filesystem) by text bookmarks.
 
 ## Usage:
 
@@ -24,11 +24,12 @@ Generate bash code for an integration with Linux Bash:
 
 * directory-bookmarks.kts i
 
-For integration with Linux, it is advisable to add some functions (from the the last command) to the end of the `.bashrc` file. After reloading the `.bashrc` file, the following shortcuts can be used:
+For integration with Linux Ubuntu, it is advisable to add some functions (from the the last command) to the end of the `.bashrc` file. 
+After reloading the `.bashrc` file, the following shortcuts can be used:
 
 * sdf [bookmark] # Save the current directory to the required bookmark
 * cdf [bookmark] # Change a current directory by a bookmark
-* ldf # list all saved bookmarks
+* ldf # list all saved bookmarks and directories
 
 
 ## Installation for Linux Ubuntu:
