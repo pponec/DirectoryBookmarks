@@ -1,4 +1,4 @@
-// #!/usr/bin/env kscript
+#!/usr/bin/env kscript
 package net.ponec.kotlin.utils.script
 
 import java.io.File
@@ -13,7 +13,7 @@ val header = "$comment A directory bookmarks for the '$appName' script"
 val homeDir = System.getProperty("user.home")
 
 // Uncomment it for kscript:
-// main(args)
+main(args)
 
 fun main(args: Array<String>) {
     if (args.isEmpty()) printHelpAndExit()
