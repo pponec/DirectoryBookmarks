@@ -41,7 +41,7 @@ fun printHelpAndExit() {
     var bashrc = "~/.bashrc"
     println("Script '$appName' v$appVersion ($homePage)")
     println("Usage version: $appName [rwl] bookmark directory optionalComment")
-    println("Integrate it to Linux Ubuntu: $appName i >> $bashrc && . $bashrc")
+    println("Integrate the script to Ubuntu: $appName i >> $bashrc && . $bashrc")
     exitProcess(1)
 }
 
@@ -88,7 +88,7 @@ fun save(key: String, dir: String, vararg comments: String) {
         writer.write(newLine)
         writer.write("$key$separator$dir")
         if (!comments.isEmpty()) {
-            writer.write("$separator#")
+            writer.write("$separator$comment")
             comments.forEach { writer.append(" $it") }
         }
         writer.write(newLine)
