@@ -27,7 +27,7 @@ Generate bash code for an integration with Linux Bash:
 For integration with Linux Ubuntu, it is advisable to add some functions (from the the last command) to the end of the `.bashrc` file. 
 After reloading the `.bashrc` file, the following shortcuts can be used:
 
-* `sdf [bookmark]` # Save the current directory to the required bookmark
+* `sdf [bookmark] [optional comment]` # Save the current directory to the required bookmark
 * `cdf [bookmark]` # Change a current directory by a bookmark
 * `ldf` # list all saved bookmarks and directories
 
@@ -37,7 +37,8 @@ After reloading the `.bashrc` file, the following shortcuts can be used:
 Backup the file `.bashrc` before.
 
 * Install kscript according the instruction: https://github.com/kscripting/kscript
-* `cd ~/bin && wget https://raw.githubusercontent.com/pponec/DirectoryBookmarks/main/directory-bookmarks.kts`
+* Switch to the executable scripts directory.: `cd ~/bin` 
+* `wget https://raw.githubusercontent.com/pponec/DirectoryBookmarks/main/directory-bookmarks.kts`
 * `chmod 755 directory-bookmarks.kts`
 * `directory-bookmarks.kts i >> ~/.bashrc && . ~/.bashrc`
 
