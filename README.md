@@ -36,8 +36,8 @@ After reloading the `.bashrc` file, the following shortcuts can be used:
 
 Backup the file `.bashrc` before.
 
-* Install kscript according the instruction: https://github.com/kscripting/kscript
-* Switch to the executable scripts directory.: `cd ~/bin` 
+* Install kscript according the instructions: https://github.com/kscripting/kscript
+* Switch to the executable scripts directory: `cd ~/bin` 
 * `wget https://raw.githubusercontent.com/pponec/DirectoryBookmarks/main/directory-bookmarks.kts`
 * `chmod 755 directory-bookmarks.kts`
 * `directory-bookmarks.kts i >> ~/.bashrc && . ~/.bashrc`
