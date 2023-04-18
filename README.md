@@ -14,7 +14,7 @@ Read the directory by a bookmark text:
 
 Write a new bookmark:
 
-* `directory-bookmarks.kts w [bookmark] [directory]`
+* `directory-bookmarks.kts w [bookmark] [directory] [optional comment]`
 
 List the all saved bookmarks:
 
