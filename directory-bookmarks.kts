@@ -2,10 +2,13 @@
 package net.ponec.kotlin.utils.script
 
 import java.io.File
+import java.util.regex.Pattern
 import kotlin.system.exitProcess
 
+val homePage = "https://github.com/pponec/DirectoryBookmarks"
 val appName = "directory-bookmarks.kts"
-val storeName = ".directory-bookmarks.txt"
+val appVersion = "1.1"
+val storeName = ".directory-bookmarks.csv"
 val separator = '\t'
 val comment = '#'
 val newLine = System.lineSeparator()
@@ -25,24 +28,20 @@ fun main(args: Array<String>) {
         }
         "w" -> {
             if (args.size < 3) printHelpAndExit()
-            save(args[1], args[2])
+            val msg = args.sliceArray(3 until args.size)
+            save(args[1], args[2], *msg)
         }
-        "l" -> {
-            printDirectories()
-        }
-        "i" -> {
-            printInstall()
-        }
-        else -> {
-            printHelpAndExit()
-        }
+        "l" -> printDirectories()
+        "i" -> printInstall()
+        else -> printHelpAndExit()
     }
 }
 
 fun printHelpAndExit() {
     var bashrc = "~/.bashrc"
-    println("Use: $appName [rwl] bookmark directory")
-    println("  or install to Ubuntu: $appName i >> $bashrc && . $bashrc")
+    println("Script '$appName' v$appVersion ($homePage)")
+    println("Usage version: $appName [rwl] bookmark directory optionalComment")
+    println("Integrate it to Linux Ubuntu: $appName i >> $bashrc && . $bashrc")
     exitProcess(1)
 }
 
@@ -59,6 +58,7 @@ fun printDirectories() {
 fun getDirectory(key: String, defaultDir: String) : String {
     when(key) {
         "~" -> return homeDir
+        "." -> return key
     }
     val extendedKey = key + separator
     val storeFile = getStoreFile()
@@ -70,16 +70,16 @@ fun getDirectory(key: String, defaultDir: String) : String {
             .findFirst()
             .orElse(defaultDir)
     }
-    val commentSeparator = " # "
-    val hashIndex = dir.lastIndexOf(commentSeparator)
-    return if (hashIndex > 0) {
-        dir.substring(hashIndex + commentSeparator.length).trim()
+    val commentmMatcher = Pattern.compile("\\s+$comment\\s").matcher(dir)
+    return if (commentmMatcher.find()) {
+        dir.substring(0, commentmMatcher.start())
     } else {
         dir
     }
 }
 
-fun save(key: String, dir: String) {
+fun save(key: String, dir: String, vararg comments: String) {
+    require(!key.contains(separator), { "the key contains a tab" })
     val extendedKey = key + separator
     val tempFile = getStoreFileTemplate()
     val storeFile = getStoreFile()
@@ -87,6 +87,10 @@ fun save(key: String, dir: String) {
         writer.write(header)
         writer.write(newLine)
         writer.write("$key$separator$dir")
+        if (!comments.isEmpty()) {
+            writer.write("$separator#")
+            comments.forEach { writer.append(" $it") }
+        }
         writer.write(newLine)
         storeFile.bufferedReader().use {
             it.lines()
@@ -116,8 +120,8 @@ fun getStoreFileTemplate(): File {
 fun printInstall() {
     val msg = """
         # Shortcuts for $appName utilities:
-        cdf() { b="${'$'}1" && cd "${'$'}($appName r ${'$'}b)"; }
-        sdf() { $appName w "${'$'}1" "${'$'}PWD"; }
+        cdf() { cd "${'$'}($appName r ${'$'}1)"; }
+        sdf() { $appName w "${'$'}1" "${'$'}PWD" ${'$'}{@:2}; }
         ldf() { $appName l; }
     """.trimIndent()
     println(msg)
