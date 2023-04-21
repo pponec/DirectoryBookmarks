@@ -4,7 +4,7 @@ Simple [Kotlin script](https://github.com/kscripting/kscript) for manage (writin
 
 ## Usage:
 
-Brief usage:
+Brief usage (help):
 
 * `directory-bookmarks.kts h`
 
@@ -18,7 +18,7 @@ Write a new bookmark:
 
 List the all saved bookmarks:
 
-* `directory-bookmarks.kts w [bookmark] [directory]`
+* `directory-bookmarks.kts l`
 
 Generate bash code for an integration with Linux Bash:
 
