@@ -42,3 +42,9 @@ Backup the file `.bashrc` before.
 * `chmod 755 directory-bookmarks.kts`
 * `directory-bookmarks.kts i >> ~/.bashrc && . ~/.bashrc`
 
+## Similar projects:
+
+* https://github.com/C-Hess/cd-bookmark
+* https://github.com/wting/autojump/wiki
+
+
