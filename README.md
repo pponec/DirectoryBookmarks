@@ -2,7 +2,7 @@
 
 Simple [Kotlin script](https://github.com/kscripting/kscript) for manage (writing and reading) directories.
 The script can be used to save the current directory along with a unique text identifier, which can then be used to quickly return to the saved directory. 
-The script supports adding new bookmarks, listing them and deleting them. 
+The script supports adding bookmark, listing and deleting. 
 
 After an integration to a Bash be:
 
