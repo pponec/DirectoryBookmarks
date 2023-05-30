@@ -55,5 +55,3 @@ Backup the file `.bashrc` before.
 
 * https://github.com/C-Hess/cd-bookmark
 * https://github.com/wting/autojump/wiki
-
-
