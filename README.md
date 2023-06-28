@@ -61,6 +61,7 @@ To increase the running speed, the script can be compiled into Java bytecode. Th
 2. Comment the last statement.
 3. Run: `kotlinc DirectoryBookmarks.kt -include-runtime -d DirectoryBookmarks.jar`
 4. Run: `java -jar DirectoryBookmarks.jar [parameter(s)]`
+5. When installing into Ubuntu, use the parameter: `i4j`  (install for Java).
 
 ## Similar projects:
 
