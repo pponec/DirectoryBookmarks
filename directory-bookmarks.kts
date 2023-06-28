@@ -1,17 +1,17 @@
 #!/usr/bin/env kscript
-package net.ponec.kotlin.utils.script
+package net.ponec.kotlin.utils.script1
 
 import java.io.File
 import java.util.regex.Pattern
 import kotlin.system.exitProcess
 
 /** Compile to a Java archive and run it:
- * 1. Run: `cp directory-bookmarks.kts DirectoryBookmarks.kt`
+ * 1. Run: `cp DirectoryBookmarks.kts DirectoryBookmarks.kt`
  * 2. Comment the last statement.
  * 3. Run: `kotlinc DirectoryBookmarks.kt -include-runtime -d DirectoryBookmarks.jar`
  * 4. Run: `java -jar DirectoryBookmarks.jar [parameter(s)]`
  */
-object MainSingleton {
+object SingletonOrig {
 
     private val homePage = "https://github.com/pponec/DirectoryBookmarks"
     private val appName = "directory-bookmarks.kts"
@@ -45,7 +45,8 @@ object MainSingleton {
             }
 
             "l" -> printDirectories()
-            "i" -> printInstall()
+            "i" -> printInstall(false)
+            "i4j" -> printInstall(true) // Install for Java Runtime
             else -> printHelpAndExit()
         }
     }
@@ -136,16 +137,22 @@ object MainSingleton {
         return File.createTempFile("storeName", "", File(homeDir));
     }
 
-    fun printInstall() {
+    fun printInstall(forJava: Boolean) {
+        val exec = if (forJava)
+            "/opt/java/default.17/bin/java -jar ~/bin/DirectoryBookmarks.jar"
+        else
+            "$appName"
+        
         val msg = """
         # Shortcuts for $appName utilities:
-        cdf() { cd "${'$'}($appName r ${'$'}1)"; }
-        sdf() { $appName w "${'$'}1" "${'$'}PWD" ${'$'}{@:2}; }
-        ldf() { $appName l; }
+        alias directoryBookmarksExe='$exec'
+        cdf() { cd "${'$'}(directoryBookmarksExe r ${'$'}1)"; }
+        sdf() { directoryBookmarksExe w "${'$'}PWD" "${'$'}*"; }
+        ldf() { directoryBookmarksExe l; }
     """.trimIndent()
         println(msg)
     }
 }
 
 // Uncomment it for kscript:
-MainSingleton.main(args)
+Singleton.main(args)
