@@ -51,6 +51,17 @@ Backup the file `.bashrc` before.
 * `chmod 755 directory-bookmarks.kts`
 * `directory-bookmarks.kts i >> ~/.bashrc && . ~/.bashrc`
 
+To increase the running speed, the script can be compiled into Java bytecode. The procedure is as follows.
+
+## Acceleration:
+
+To increase the running speed, the script can be compiled into Java bytecode. The procedure is as follows:
+
+1. Run: `cp directory-bookmarks.kts DirectoryBookmarks.kt`
+2. Comment the last statement.
+3. Run: `kotlinc DirectoryBookmarks.kt -include-runtime -d DirectoryBookmarks.jar`
+4. Run: `java -jar DirectoryBookmarks.jar [parameter(s)]`
+
 ## Similar projects:
 
 * https://github.com/C-Hess/cd-bookmark
