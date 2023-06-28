@@ -1,5 +1,5 @@
 #!/usr/bin/env kscript
-package net.ponec.kotlin.utils.script1
+package net.ponec.kotlin.utils.script
 
 import java.io.File
 import java.util.regex.Pattern
@@ -148,4 +148,4 @@ object MainSingleton {
 }
 
 // Uncomment it for kscript:
-Singleton.main(args)
+MainSingleton.main(args)
