@@ -96,7 +96,7 @@ object MainSingleton {
         save(key, "")
 
     /** Empty dir removes the bookmark */
-    fun save(key: String, dir: String, vararg comments: String) {
+    fun save(dir: String, key: String, vararg comments: String) {
         require(!key.contains(separator), { "the key contains a tab" })
         val extendedKey = key + separator
         val tempFile = getStoreFileTemplate()
@@ -147,7 +147,7 @@ object MainSingleton {
         # Shortcuts for $appName utilities:
         alias directoryBookmarksExe='$exec'
         cdf() { cd "${'$'}(directoryBookmarksExe r ${'$'}1)"; }
-        sdf() { directoryBookmarksExe w "${'$'}PWD" "${'$'}*"; }
+        sdf() { directoryBookmarksExe w "${'$'}PWD" "${'$'}@"; }
         ldf() { directoryBookmarksExe l; }
     """.trimIndent()
         println(msg)
