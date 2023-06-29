@@ -15,7 +15,7 @@ object SingletonOrig {
 
     private val homePage = "https://github.com/pponec/DirectoryBookmarks"
     private val appName = "directory-bookmarks.kts"
-    private val appVersion = "1.2"
+    private val appVersion = "1.3"
     private val storeName = ".directory-bookmarks.csv"
     private val separator = '\t'
     private val comment = '#'
