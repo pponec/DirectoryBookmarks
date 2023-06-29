@@ -11,7 +11,7 @@ import kotlin.system.exitProcess
  * 3. Run: `kotlinc DirectoryBookmarks.kt -include-runtime -d DirectoryBookmarks.jar`
  * 4. Run: `java -jar DirectoryBookmarks.jar [parameter(s)]`
  */
-object SingletonOrig {
+object MainSingleton {
 
     private val homePage = "https://github.com/pponec/DirectoryBookmarks"
     private val appName = "directory-bookmarks.kts"
@@ -155,4 +155,4 @@ object SingletonOrig {
 }
 
 // Uncomment it for kscript:
-Singleton.main(args)
+MainSingleton.main(args)
