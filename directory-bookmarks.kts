@@ -142,14 +142,14 @@ object MainSingleton {
             "/opt/java/default.17/bin/java -jar ~/bin/DirectoryBookmarks.jar"
         else
             "$appName"
-        
+
         val msg = """
-        # Shortcuts for $appName utilities:
-        alias directoryBookmarksExe='$exec'
-        cdf() { cd "${'$'}(directoryBookmarksExe r ${'$'}1)"; }
-        sdf() { directoryBookmarksExe w "${'$'}PWD" "${'$'}@"; }
-        ldf() { directoryBookmarksExe l; }
-    """.trimIndent()
+            # Shortcuts for $appName utilities:
+            alias directoryBookmarksExe='$exec'
+            cdf() { cd "${'$'}(directoryBookmarksExe r ${'$'}1)"; }
+            sdf() { directoryBookmarksExe w "${'$'}PWD" "${'$'}@"; }
+            ldf() { directoryBookmarksExe l; }
+        """.trimIndent()
         println(msg)
     }
 }
